@@ -25,6 +25,6 @@ export const StyleImage = styled.img`
 export const StyleImagePagosv = styled.img`
   width: 200px;
   height: 80px;
-  margin-left: -65%;
+  margin-left: -74%;
   image-resolution: from-image;
 `;

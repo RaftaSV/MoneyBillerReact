@@ -6,9 +6,9 @@ const CardCompanies = ({ image, name, address, tel, email }) => {
     <StyleWrapper>
       <StyleImage loading="lazy" src={image} />
       <Title>{name}</Title>
-      <h2> Address: {address}</h2>
       <h2> Tel: {tel}</h2>
       <h2>Email: {email}</h2>
+      <h2> Address: {address}</h2>
     </StyleWrapper>
   );
 };
