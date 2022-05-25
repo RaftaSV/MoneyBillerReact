@@ -5,7 +5,7 @@ export const StyleMenuNavbar = styled.div`
   width: auto;
   display: none;
   flex-direction: row;
-
+  align-items: inherit;
   @media screen and (min-width: 768px) {
     display: flex;
   }
@@ -14,7 +14,7 @@ export const StyleMenuNavbar = styled.div`
 export const StyleMenuItem = styled(Button)`
   margin-right: 10px;
   min-width: auto;
-  padding: 0 10px;
+  padding: 1px 10px;
   transition: color 0.3s;
   font-weight: 700;
 
@@ -23,3 +23,4 @@ export const StyleMenuItem = styled(Button)`
     color: ${({ theme }) => theme.colors.secondary};
   }
 `;
+

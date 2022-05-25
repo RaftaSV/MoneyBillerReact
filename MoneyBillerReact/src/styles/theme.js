@@ -10,16 +10,16 @@ const colorsLight = {
   white: '#fff',
   transparent: 'transparent',
   background: '#ffffff',
-  bgCard: 'rgba(100, 100, 200, .2)',
+  bgCard: 'rgba(130,207,223,0.22)',
   text: '#000000',
-  nav: 'rgba(255, 255, 255, 0.8)'
+  nav: 'rgba(156,232,248,0.43)'
 };
 
 const colorsDark = {
   ...colorsLight,
   background: '#000000',
   text: '#ffffff',
-  bgCard: 'rgba(100, 100, 200, 0.3)',
+  bgCard: 'rgba(100, 100, 200, 0.1)',
   nav: 'rgba(0, 0, 0, .5)'
 };
 

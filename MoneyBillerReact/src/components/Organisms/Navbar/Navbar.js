@@ -1,11 +1,12 @@
 import MenuNavbar from 'components/Molecules/MenuNavbar';
-import Title from 'components/Atoms/Title';
-import { StyleNavbar } from './style';
+
+import { StyleNavbar, StyleImage, StyleImagePagosv } from './style';
 
 const Navbar = () => {
   return (
     <StyleNavbar>
-      <Title color="secondary">MONEYBILLER</Title>
+      <StyleImage loading="lazy" src={'LogoProyect.png'}/>
+      <StyleImagePagosv loading="lazy" src={'ng.png'}/>
       <MenuNavbar />
     </StyleNavbar>
   );

@@ -1,6 +1,6 @@
 import { StyleTitle } from './style';
 
-const Title = ({ children, htmlTag = 'h2', color = 'text', size = 45, lineHeight = size + 20, ...restProps }) => {
+const Title = ({ children, htmlTag = 'h2', color = 'text', size = 35, lineHeight = size + 20, ...restProps }) => {
   return (
     <StyleTitle as={htmlTag} $size={size} $color={color} $lineHeight={lineHeight} {...restProps}>
       {children}

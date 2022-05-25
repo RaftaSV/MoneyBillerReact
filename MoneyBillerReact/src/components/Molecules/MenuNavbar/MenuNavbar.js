@@ -17,9 +17,6 @@ const MenuNavbar = () => {
       >
         {theme === 'light' ? <MoonFilled /> : <SunFilled />}
       </StyleMenuItem>
-      <StyleMenuItem color="transparent" labelColor="text">
-        Companies
-      </StyleMenuItem>
     </StyleMenuNavbar>
   );
 };
