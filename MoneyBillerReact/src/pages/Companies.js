@@ -2,15 +2,13 @@ import { useEffect } from 'react';
 import { Row, Col } from 'react-grid-system';
 
 import useQuery from 'hooks/useQuery';
-import Title from 'components/Atoms/Title';
-import Button from 'components/Atoms/Button';
 import Layout from 'components/Organisms/Layout';
 import CardCompanies from 'components/Molecules/CardCompanies';
 
 const baseUrl = `${process.env.REACT_APP_API_URL}/v1`;
-
+// const { data, loading, refresh } = useQuery('/Companies');
 function Companies() {
-  const { data, loading, refresh } = useQuery('/Companies');
+  const { data, loading } = useQuery('/Companies');
 
   useEffect(() => {
     console.log({ data, loading });
@@ -28,9 +26,9 @@ function Companies() {
         </p>
       ) : (
         <Row>
-          {data?.map(({ id, name, address, tel }) => (
+          {data?.map(({ id, name, address, tel, email }) => (
             <Col key={id} xs={12} md={6} lg={4}>
-              <CardCompanies name={name} image={`${baseUrl}/Images/Companies/${id}.png`}  address={address} tel={tel}/>
+              <CardCompanies name={name} image={`${baseUrl}/Images/Companies/${id}.png`}  address={address} tel={tel} email={email}/>
             </Col>
           ))}
         </Row>
