@@ -4,15 +4,15 @@ import {useEffect} from 'react';
 import { Row, Col } from 'react-grid-system';
 
 import useQuery from 'hooks/useQuery';
-import Button from 'components/Atoms/Button';
+//import Button from 'components/Atoms/Button';
 import Layout from 'components/Organisms/Layout';
 import CardServices from '../components/Molecules/CardServices';
 
 const baseUrl = `${process.env.REACT_APP_API_URL}/v1`;
 
-
+// const { data, loading, refresh } = useQuery('/Services');
 function Services() {
-  const { data, loading, refresh } = useQuery('/Services');
+  const { data, loading } = useQuery('/Services');
 
   useEffect(() => {
     console.log({ data, loading });

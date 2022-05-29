@@ -12,7 +12,11 @@ const colorsLight = {
   background: '#ffffff',
   bgCard: 'rgba(130,207,223,0.22)',
   text: '#000000',
-  nav: 'rgba(156,232,248,0.43)'
+  nav: 'rgba(156,232,248,0.43)',
+  modal: 'rgba(0, 0, 0, 0.1)',
+  bgModal: 'white',
+  input: '#F5F5F5',
+  shadowInput: 'rgb(224, 224, 224)'
 };
 
 const colorsDark = {
@@ -20,7 +24,10 @@ const colorsDark = {
   background: '#000000',
   text: '#ffffff',
   bgCard: 'rgba(100, 100, 200, 0.1)',
-  nav: 'rgba(0, 0, 0, .5)'
+  nav: 'rgba(0, 0, 0, .5)',
+  bgModal: '#161616',
+  input: '#161616',
+  shadowInput: 'rgb(77, 77, 77)'
 };
 
 const zIndex = {
