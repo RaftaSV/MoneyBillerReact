@@ -9,7 +9,6 @@ export const StyleButton = styled.button`
   cursor: pointer;
   background: ${({ theme, $color }) => theme.colors[$color]};
   color: ${({ theme, $labelColor }) => theme.colors[$labelColor]};
-
   &:hover {
     opacity: 0.8;
   }

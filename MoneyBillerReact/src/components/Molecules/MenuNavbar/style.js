@@ -7,7 +7,7 @@ export const StyleMenuNavbar = styled.div`
   flex-direction: row;
   align-items: inherit;
   @media screen and (min-width: 768px) {
-    display: flex;
+    display:flex;
   }
 `;
 

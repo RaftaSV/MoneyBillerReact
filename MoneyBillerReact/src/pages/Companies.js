@@ -1,10 +1,9 @@
-import { useEffect } from 'react';
-import { Row, Col } from 'react-grid-system';
-import withReactContent from 'sweetalert2-react-content';
 import Swal from 'sweetalert2';
-
+import { useEffect } from 'react';
 import useQuery from 'hooks/useQuery';
+import { Row, Col } from 'react-grid-system';
 import Layout from 'components/Organisms/Layout';
+import withReactContent from 'sweetalert2-react-content';
 import CardCompanies from 'components/Molecules/CardCompanies';
 
 const baseUrl = `${process.env.REACT_APP_API_URL}/v1`;
@@ -15,6 +14,7 @@ function Companies() {
     console.log({ data, loading });
     document.title='Companies';
   }, [loading, data]);
+
 const viewName = async (name) => {
   const mySwal = withReactContent(Swal);
   await mySwal.fire({

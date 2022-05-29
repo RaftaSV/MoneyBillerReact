@@ -1,9 +1,6 @@
 import {useEffect} from 'react';
-
-
-import { Row, Col } from 'react-grid-system';
-
 import useQuery from 'hooks/useQuery';
+import { Row, Col } from 'react-grid-system';
 //import Button from 'components/Atoms/Button';
 import Layout from 'components/Organisms/Layout';
 import CardServices from '../components/Molecules/CardServices';

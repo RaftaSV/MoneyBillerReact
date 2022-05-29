@@ -7,7 +7,7 @@ export const StyleWrapper = styled.div`
   padding: 20px;
   margin: 15px 0;
   cursor: pointer;
-  max-width: 300px;
+  max-width: 275px;
   transition: all 0.3s ease-in-out;
   &:hover {
     transform: scale(1.1);

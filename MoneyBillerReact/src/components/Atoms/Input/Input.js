@@ -1,7 +1,7 @@
-import {StyleImput} from './style';
+import {StyleInput} from './style';
 
 const Input = ({ placeholder, ...props }) => {
-  return <StyleImput placeholder = {placeholder} {...props}
+  return <StyleInput placeholder = {placeholder} {...props}
 />
 };
 

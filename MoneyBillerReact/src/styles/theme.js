@@ -16,7 +16,8 @@ const colorsLight = {
   modal: 'rgba(0, 0, 0, 0.1)',
   bgModal: 'white',
   input: '#F5F5F5',
-  shadowInput: 'rgb(224, 224, 224)'
+  shadowInput: 'rgb(224, 224, 224)',
+  boxshadow: '1px 5px 10px 10px rgba(0, 0, 0, 0.5)'
 };
 
 const colorsDark = {
@@ -27,7 +28,8 @@ const colorsDark = {
   nav: 'rgba(0, 0, 0, .5)',
   bgModal: '#161616',
   input: '#161616',
-  shadowInput: 'rgb(77, 77, 77)'
+  shadowInput: 'rgb(77, 77, 77)',
+  boxshadow: '1px 5px 10px 10px rgba(100, 2, 150, 0.5)'
 };
 
 const zIndex = {
