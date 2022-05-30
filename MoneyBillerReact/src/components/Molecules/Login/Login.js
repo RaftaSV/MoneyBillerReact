@@ -5,7 +5,8 @@ import Title from 'components/Atoms/Title';
 import Input from 'components/Atoms/Input';
 import Button from 'components/Atoms/Button';
 import withReactContent from 'sweetalert2-react-content';
-import { StyleImageAvatar, StyleWrapper, FormContainer,StyleImageLogo } from './style';
+import {StyleImageAvatar, StyleWrapper, FormContainer,StyleImageLogo, StyleRegistro} from './style';
+
 
 const baseUrl = `${process.env.REACT_APP_API_URL}/v1`;
 
@@ -78,8 +79,12 @@ const SignInForm = () => {
       <Input placeholder={'Digite su usuario'}  type="text" onChange={onChangeUserName}/>
       <Title size={18}>Contraseña</Title>
       <Input placeholder={'Digite su contraseña'} type="password"  onChange={onChangePassword} />
-      <br/>
       <Button type="submit">INGRESAR</Button>
+      <StyleRegistro>
+        <Title size={14}> Registrar usuario</Title>
+        <Title size={14}> Registrar socio</Title>
+        <Title size={14}> Registrar empresa</Title>
+      </StyleRegistro>
     </StyleWrapper>
       </FormContainer>
   );
