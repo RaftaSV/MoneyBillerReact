@@ -8,7 +8,7 @@ export const StyleButton = styled.button`
   padding: 0 20px;
   cursor: pointer;
   background: ${({ theme, $color }) => theme.colors[$color]};
-  color: ${({ theme, $labelColor }) => theme.colors[$labelColor]};
+  color: ${({ theme }) => theme.colors.text};
   &:hover {
     opacity: 0.8;
   }

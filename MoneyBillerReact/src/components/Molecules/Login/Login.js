@@ -10,7 +10,7 @@ import {StyleImageAvatar, StyleWrapper, FormContainer,StyleImageLogo, StyleRegis
 
 const baseUrl = `${process.env.REACT_APP_API_URL}/v1`;
 
-const SignInForm = () => {
+const SignInForm = ({onClickUser, onClickMember, onClickCompany}) => {
 
   const MySwal = withReactContent(Swal);
   const [Username, setUsername] = useState('');
@@ -71,22 +71,23 @@ const SignInForm = () => {
       }
     }
   return (
-    <FormContainer onSubmit={handleSubmit}>
+    <FormContainer>
       <StyleImageLogo loading='Lazy' src={'LogoProyect.png'}/>
-    <StyleWrapper>
+    <StyleWrapper onSubmit={handleSubmit}>
       <StyleImageAvatar loading='lazy' src={'Avatar.png'} />
      <Title size={18}>Usuario</Title>
       <Input placeholder={'Digite su usuario'}  type="text" onChange={onChangeUserName}/>
       <Title size={18}>Contraseña</Title>
       <Input placeholder={'Digite su contraseña'} type="password"  onChange={onChangePassword} />
       <Button type="submit">INGRESAR</Button>
-      <StyleRegistro>
-        <Title size={14}> Registrar usuario</Title>
-        <Title size={14}> Registrar socio</Title>
-        <Title size={14}> Registrar empresa</Title>
-      </StyleRegistro>
     </StyleWrapper>
+      <StyleRegistro>
+        <Button color={'transparent'}  onClick={onClickUser}> Registrar usuario</Button>
+        <Button  color={'transparent'} onClick={onClickMember}  > Registrar socio</Button>
+        <Button color={'transparent'} onClick={onClickCompany} > Registrar empresa</Button>
+      </StyleRegistro>
       </FormContainer>
+
   );
 };
 

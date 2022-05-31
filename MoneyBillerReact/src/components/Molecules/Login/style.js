@@ -6,22 +6,31 @@ export const FormContainer = styled.div`
   border-radius: 16px;
   display: flex;
   max-width: 800px;
-  align-content: flex-start;
   align-items: center;
+  align-content: center;
   min-height: 500px;
   box-shadow: ${({ theme }) => theme.colors.boxshadow};
   margin-top: 20px;
 `;
-export const StyleWrapper = styled.div`
+export const StyleWrapper = styled.form`
   min-width: 300px;
-  background-color: ${({ theme }) => theme.colors.transparent};
+  background-color: ${({ theme }) => theme.colors.tranparent};
   border-radius: 16px;
   padding:10px;
   display: flex;
+  border: 2px;
   flex-direction: column;
   align-content: center;
   align-items: center;
-  margin-top: -20px;
+  margin-top: -10%;
+  margin-left: 20%;
+  @media screen and (min-width: 768px) {
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: -5%;
+    margin-left: 5%;
+  }
 `;
 
 export const StyleImageAvatar = styled.img`
@@ -30,13 +39,19 @@ export const StyleImageAvatar = styled.img`
   max-width: 190px;
 `;
 export const StyleRegistro = styled.div`
+  display: flex;
+  margin-top: 105%;
   min-width: 600px;
-
+  padding: 10px;
   align-items: center;
+  flex-direction: column;
+  margin-left: -88%;
   @media screen and (min-width: 768px) {
-    display:flex;
+    margin-left: -85%;
+    display:inline;
     justify-content: space-between;
-    margin-left: -72%;
+    flex-direction: row;
+    margin-top: 60%;
   }
 
 `;

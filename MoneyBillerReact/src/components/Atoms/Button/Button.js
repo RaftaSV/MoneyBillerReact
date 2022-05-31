@@ -1,7 +1,7 @@
 // Button
 import { StyleButton } from './style';
 
-const Button = ({ className, onClick, color = 'primary', labelColor = 'back', ...restProps }) => {
+const Button = ({ className, onClick, color = 'primary', labelColor = 'back',  ...restProps }) => {
   return (
     <StyleButton
       $color={color}
