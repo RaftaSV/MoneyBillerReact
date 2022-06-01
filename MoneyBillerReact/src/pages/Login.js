@@ -2,6 +2,8 @@ import LoginMolecule from 'components/Molecules/Login';
 import LayoutLogin from 'components/Organisms/LayautLogin';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { AddUserModal } from 'components/Molecules/Modals';
+import useModal from 'hooks/useModal';
 
 const MySwal = withReactContent(Swal);
 
@@ -16,12 +18,16 @@ export const click = async (element) => {
   });
 }
 function Login() {
+  const { visible, onToggle } = useModal();
   document.title = 'Login';
 return(
     <LayoutLogin>
-      <LoginMolecule onClickUser={()=>click('User')}
+
+      <LoginMolecule onClickUser={()=> onToggle()}
                      onClickMember={()=>click('Member')}
                      onClickCompany={()=>click('Company')}/>
+
+      <AddUserModal isOpen={visible} onCancel={onToggle} />
     </LayoutLogin>
 )
 }

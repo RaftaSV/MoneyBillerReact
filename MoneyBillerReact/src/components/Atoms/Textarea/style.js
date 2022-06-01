@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyleInput = styled.input`
+export const StyleInput = styled.textarea`
   width: 200px;
   height: 40px;
   border-radius: 16px;
@@ -10,5 +10,4 @@ export const StyleInput = styled.input`
   color: ${({ theme }) => theme.colors.text};
   background: ${({ theme }) => theme.colors.input};
   box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.shadowInput};
-
 `;
