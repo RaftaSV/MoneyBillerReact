@@ -5,19 +5,31 @@ export const StyleBody = styled.div`
   position: relative;
   height: 100%;
   width: 100%;
-  min-width: 350px;
+  min-width: 470px;
+  max-width: 470px;
+  min-height: 400px;
+  max-height: 400px;
   padding: 10px;
   background-color: ${({ theme }) => theme.colors.nav};
   display: flex;
   border: 2px;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  z-index: ${({ theme }) => theme.zIndex.max} ;
+
+`;
+
+export const StyleTitle = styled.div`
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.nav};
+  padding-left: 20px;
 `;
 
 export const StyleCloseBtn = styled(Button)`
   position: absolute;
   right: 10px;
-  top: 10px;
+  top: -1px;
   min-width: auto;
   width: 40px;
   height: 40px;
@@ -30,7 +42,7 @@ export const StyleCloseBtn = styled(Button)`
 
 export const customStyles = {
   overlay: {
-    backdropFilter: 'saturate(190%) blur(20px)'
+    backdropFilter: 'saturate(100%) blur(10px)'
   },
   content: {
     top: '54%',

@@ -3,9 +3,11 @@ import styled from 'styled-components';
 export const StyleInput = styled.textarea`
   width: 200px;
   height: 40px;
+  max-width: 200px;
+  max-height: 80px;
   border-radius: 16px;
   border: none;
-  padding: 0 12px;
+  padding: 11px;
   margin-bottom: 20px;
   color: ${({ theme }) => theme.colors.text};
   background: ${({ theme }) => theme.colors.input};

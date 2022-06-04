@@ -2,7 +2,9 @@ import LoginMolecule from 'components/Molecules/Login';
 import LayoutLogin from 'components/Organisms/LayautLogin';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import { AddUserModal } from 'components/Molecules/Modals';
+import { AddUserModal } from 'components/Molecules/ModalUser';
+import { AddMemberModal as Member } from 'components/Molecules/ModalMember';
+import { AddCompanyModal} from 'components/Molecules/ModalCompany';
 import useModal from 'hooks/useModal';
 
 const MySwal = withReactContent(Swal);
@@ -19,15 +21,19 @@ export const click = async (element) => {
 }
 function Login() {
   const { visible, onToggle } = useModal();
+  const { visible: v, onToggle: o } = useModal();
+  const { visible: visibleCompany, onToggle: onToggleCompany } = useModal();
   document.title = 'Login';
 return(
     <LayoutLogin>
 
-      <LoginMolecule onClickUser={()=> onToggle()}
-                     onClickMember={()=>click('Member')}
-                     onClickCompany={()=>click('Company')}/>
+      <LoginMolecule onClickUser={()=> o()}
+                     onClickMember={()=>onToggle()}
+                     onClickCompany={()=>onToggleCompany()}/>
 
-      <AddUserModal isOpen={visible} onCancel={onToggle} />
+      <Member isOpen={visible} onCancel={onToggle} />
+      <AddUserModal isOpen={v} onCancel={o} />
+      <AddCompanyModal isOpen={visibleCompany} onCancel={onToggleCompany} />
     </LayoutLogin>
 )
 }
