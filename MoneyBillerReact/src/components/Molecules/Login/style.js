@@ -12,7 +12,7 @@ export const FormContainer = styled.div`
   box-shadow: ${({ theme }) => theme.colors.boxshadow};
   margin-top: 20px;
 `;
-export const StyleWrapper = styled.form`
+export const Style = styled.form`
   min-width: 300px;
   background-color: ${({ theme }) => theme.colors.tranparent};
   border-radius: 16px;
@@ -38,7 +38,7 @@ export const StyleImageAvatar = styled.img`
   min-width: 170px;
   max-width: 190px;
 `;
-export const StyleRegistro = styled.div`
+export const StyleRegisterUser = styled.div`
   display: flex;
   margin-top: 105%;
   min-width: 600px;

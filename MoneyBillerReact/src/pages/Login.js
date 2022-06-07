@@ -21,22 +21,22 @@ export const click = async (element) => {
 }
 function Login() {
   const { visible, onToggle } = useModal();
-  const { visible: v, onToggle: o } = useModal();
+  const { visible: visibleUser, onToggle: onToggleUser } = useModal();
   const { visible: visibleCompany, onToggle: onToggleCompany } = useModal();
   document.title = 'Login';
 return(
     <LayoutLogin>
 
-      <LoginMolecule onClickUser={()=> o()}
+      <LoginMolecule onClickUser={()=> onToggleUser()}
                      onClickMember={()=>onToggle()}
                      onClickCompany={()=>onToggleCompany()}/>
 
       <Member isOpen={visible} onCancel={onToggle} />
-      <AddUserModal isOpen={v} onCancel={o} />
+      <AddUserModal isOpen={visibleUser} onCancel={onToggleUser} />
       <AddCompanyModal isOpen={visibleCompany} onCancel={onToggleCompany} />
     </LayoutLogin>
 )
 }
 
 
-export  default Login;
+export default Login;

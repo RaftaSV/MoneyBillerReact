@@ -1,37 +1,63 @@
-import {useEffect} from 'react';
+import useModal from 'hooks/useModal';
 import useQuery from 'hooks/useQuery';
+import {useEffect, useState} from 'react';
 import { Row, Col } from 'react-grid-system';
-//import Button from 'components/Atoms/Button';
+import Button from 'components/Atoms/Button';
 import Layout from 'components/Organisms/Layout';
-import CardServices from '../components/Molecules/CardServices';
+import Loader from 'components/Molecules/Loader';
+import HeaderPage from 'components/Molecules/HeaderPage';
+import CardServices from 'components/Molecules/CardServices';
+import ModalService from 'components/Molecules/ModalServices/ModalServices';
 
-const baseUrl = `${process.env.REACT_APP_API_URL}/v1`;
-
-// const { data, loading, refresh } = useQuery('/Services');
 function Services() {
-  const { data, loading } = useQuery('/Services');
+
+  const baseUrl = `${process.env.REACT_APP_API_URL}/v1/Images/Services`;
+
+  const { data, loading, refresh } = useQuery('/Services');
+  const { visible, onToggle } = useModal();
+  const [serviceEdit, setServiceEdit] = useState(null);
+  const { visible: isUpdate, onHidden, onVisible } = useModal();
+
+  const onEdit = (Service) => {
+    onVisible();
+    setServiceEdit(Service);
+    onToggle();
+  };
+
+  const onClose = () => {
+    onHidden();
+    setServiceEdit(null);
+    onToggle();
+  };
 
   useEffect(() => {
     console.log({ data, loading });
     document.title = 'Services';
   }, [loading, data]);
-  // <Button onClick={refresh}>Refresh</Button>
   return (
     <Layout>
+      <HeaderPage title="Services" onAdd={onToggle} />
+      <Button onClick={refresh}>Refresh</Button>
       {loading ? (
-        <p>
-          <b>Loading...</b>
-        </p>
+       <Loader />
       ) : (
         <Row>
-          {data?.map(({ id, serviceName, DocumentInvoice }) => (
-            <Col key={id} xs={12} md={6} lg={4}>
-              <CardServices name={serviceName} image={`${baseUrl}/Images/Services/${id}.png`} DocumentInvoice={DocumentInvoice}/>
-            </Col>
-          ))}
+          {data?.map(( Service) => {
+            const {id, serviceName, DocumentInvoice} = Service;
+            return (
+              <Col key={id} xs={12} md={6} lg={4}>
+                <CardServices
+                  name={serviceName}
+                  image={`${baseUrl}/${id}.png`}
+                  DocumentInvoice={DocumentInvoice}
+                  onEdit={() => onEdit(Service)}
+                />
+              </Col>
+            );
+          })}
         </Row>
       )}
-      <div style={{ minHeight: '90vh' }} />
+      <ModalService Service={serviceEdit} isOpen={visible} isUpdate={isUpdate} onRefresh={refresh} onCancel={onClose} />
     </Layout>
   );
 }

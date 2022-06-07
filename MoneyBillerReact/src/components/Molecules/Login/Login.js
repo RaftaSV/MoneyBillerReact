@@ -5,7 +5,7 @@ import Title from 'components/Atoms/Title';
 import Input from 'components/Atoms/Input';
 import Button from 'components/Atoms/Button';
 import withReactContent from 'sweetalert2-react-content';
-import {StyleImageAvatar, StyleWrapper, FormContainer,StyleImageLogo, StyleRegistro} from './style';
+import {StyleImageAvatar, Style, FormContainer,StyleImageLogo, StyleRegisterUser} from './style';
 
 
 const baseUrl = `${process.env.REACT_APP_API_URL}/v1`;
@@ -73,19 +73,19 @@ const SignInForm = ({onClickUser, onClickMember, onClickCompany}) => {
   return (
     <FormContainer>
       <StyleImageLogo loading='Lazy' src={'LogoProyect.png'}/>
-    <StyleWrapper onSubmit={handleSubmit}>
+    <Style onSubmit={handleSubmit}>
       <StyleImageAvatar loading='lazy' src={'Avatar.png'} />
      <Title size={18}>Usuario</Title>
       <Input placeholder={'Digite su usuario'}  type="text" onChange={onChangeUserName}/>
       <Title size={18}>Contraseña</Title>
       <Input placeholder={'Digite su contraseña'} type="password"  onChange={onChangePassword} />
       <Button type="submit">INGRESAR</Button>
-    </StyleWrapper>
-      <StyleRegistro>
+    </Style>
+      <StyleRegisterUser>
         <Button color={'transparent'}  onClick={onClickUser}> Registrar usuario</Button>
         <Button  color={'transparent'} onClick={onClickMember}  > Registrar socio</Button>
         <Button color={'transparent'} onClick={onClickCompany} > Registrar empresa</Button>
-      </StyleRegistro>
+      </StyleRegisterUser>
       </FormContainer>
 
   );

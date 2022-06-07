@@ -18,9 +18,3 @@ export const DivRight = styled.div `
   align-items: center;
 `;
 
-export const DivButton = styled.div`
-  display: flex;
-  align-content: center;
-  margin-top: 75%;
-  margin-left: -63%;
-`;

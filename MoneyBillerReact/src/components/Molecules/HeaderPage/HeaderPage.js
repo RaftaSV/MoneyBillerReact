@@ -11,7 +11,7 @@ const HeaderPage = ({ title, onRefresh, onAdd }) => {
 
       <StyleActions>
         {onRefresh && <Button color="success" labelColor="white" onClick={onRefresh}>Refresh</Button>}
-        {onAdd && <Button labelColor="white" onClick={onAdd}>Add</Button>}
+        {onAdd && <Button labelColor="white" onClick={onAdd}>Agregar</Button>}
       </StyleActions>
     </StyleWrapper>
   );

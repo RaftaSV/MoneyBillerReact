@@ -7,8 +7,8 @@ export const StyleBody = styled.div`
   width: 100%;
   min-width: 470px;
   max-width: 470px;
-  min-height: 400px;
-  max-height: 400px;
+  min-height: 300px;
+  max-height: 300px;
   padding: 10px;
   background-color: ${({ theme }) => theme.colors.nav};
   display: flex;
@@ -53,7 +53,14 @@ export const customStyles = {
     transform: 'translate(-50%, -50%)',
     padding: 0,
   }
-
 };
+export const StyleFooter = styled.div`
+  display: flex;
+  align-items: center;
+  align-content: center;
+  padding: 5px;
+  flex-direction: column;
+  background-color: ${({ theme }) => theme.colors.nav};
+`;
 
 

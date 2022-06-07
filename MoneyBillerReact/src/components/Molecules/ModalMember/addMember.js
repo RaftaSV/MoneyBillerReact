@@ -1,17 +1,17 @@
 import axios from 'axios';
-import {Form, DivLeft, DivRight, DivButton} from '../ModalUser/style';
+import {Form, DivLeft, DivRight } from '../ModalUser/style';
 import Swal from 'sweetalert2';
 import Modal from 'components/Atoms/Modal';
 import Input from 'components/Atoms/Input';
 import Button from 'components/Atoms/Button';
 import Textarea from 'components/Atoms/Textarea';
 import withReactContent from 'sweetalert2-react-content';
-import Title from '../../Atoms/Title';
+import Title from 'components/Atoms/Title';
 
 const baseUrl = `${process.env.REACT_APP_API_URL}/v1`;
 
 
-const AddMemberModal = ({ isOpen, onCancel}) => {
+const AddMemberModal = ({ isOpen, onCancel, isUpdate = false }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));
@@ -63,8 +63,14 @@ const AddMemberModal = ({ isOpen, onCancel}) => {
       );
   }
     return (
-      <Modal width={400} isOpen={isOpen} onCancel={onCancel} title="Registro de socio">
-        <Form method="POST" onSubmit={onSubmit}>
+      <Modal width={400} isOpen={isOpen} onCancel={onCancel} title="Registro de socio"
+             okProps={{
+               type: 'submit',
+               form: 'form-member',
+             }}
+             okText={isUpdate ? 'Actualizar' : 'Guardar'}
+      >
+        <Form id="form-member" method="POST" onSubmit={onSubmit}>
           <DivLeft>
             <Title size={17}>Nombres</Title>
             <Input name="name" placeholder="Nombres" type="text" id={'nombre'} required/>
@@ -89,9 +95,6 @@ const AddMemberModal = ({ isOpen, onCancel}) => {
             <Title size={17}>Direccion</Title>
             <Textarea name="address" placeholder="Direccion" required/>
           </DivRight>
-          <DivButton>
-            <Button type="submit">Save</Button>
-          </DivButton>
         </Form>
         <Button hidden='hidden' id={'cerrar'} onClick={onCancel}></Button>
       </Modal>

@@ -1,12 +1,15 @@
 import LibModal from 'react-modal';
-import {customStyles, StyleBody, StyleCloseBtn, StyleTitle} from './style';
+import {customStyles, StyleBody, StyleCloseBtn, StyleFooter, StyleTitle} from './style';
 import Title from '../Title';
+import Button from '../Button';
 
 const Modal = ({
   isOpen,
   children,
   onCancel,
   title,
+  okText = 'Ok',
+  okProps = {},
   width = 450,
   contentStyle = customStyles.content,
   closeButton = true,
@@ -29,6 +32,9 @@ const Modal = ({
       >
         {children}
       </StyleBody>
+      <StyleFooter>
+        <Button {...okProps}>{okText}</Button>
+      </StyleFooter>
     </LibModal>
   );
 };
