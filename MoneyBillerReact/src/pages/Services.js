@@ -43,12 +43,12 @@ function Services() {
       ) : (
         <Row>
           {data?.map(( Service) => {
-            const {id, serviceName, DocumentInvoice} = Service;
+            const {id, serviceName, DocumentInvoice,image} = Service;
             return (
               <Col key={id} xs={12} md={6} lg={4}>
                 <CardServices
                   name={serviceName}
-                  image={`${baseUrl}/${id}.png`}
+                  image={`${baseUrl}/${id}${image}.png`}
                   DocumentInvoice={DocumentInvoice}
                   onEdit={() => onEdit(Service)}
                 />
