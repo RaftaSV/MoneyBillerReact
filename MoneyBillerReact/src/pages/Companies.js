@@ -33,9 +33,9 @@ const viewName = async (name) => {
         </p>
       ) : (
         <Row>
-          {data?.map(({ id, name, address, tel, email }) => (
+          {data?.map(({ id, name, address, tel, email, image }) => (
             <Col key={id} xs={12} md={6} lg={4}>
-              <CardCompanies  name={name} image={`${baseUrl}/Images/Companies/${id}.png`}  address={address} tel={tel} email={email} onClick={() => viewName(name)}/>
+              <CardCompanies  name={name} image={`${baseUrl}/Images/Companies/${id}${image}.png`}  address={address} tel={tel} email={email} onClick={() => viewName(name)}/>
             </Col>
           ))}
         </Row>
