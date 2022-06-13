@@ -38,18 +38,49 @@ const ModalService = ({ isOpen, onCancel, onRefresh, isUpdate = false, Service =
       }}
     >
       <form id="form-service" method="POST" onSubmit={onSubmit}>
-        <Input defaultValue={Service?.serviceName} name="serviceName" placeholder="Nombre servicio" type="text" required />
-        <Input defaultValue={Service?.DocumentInvoice} name="DocumentInvoice" placeholder="Numero de documento" type="text" required />
+        <div>
+
+        <Input defaultValue={Service?.serviceName} name="serviceName" placeholder="Nombre servicio" type="text" required  />
+
+          <Input defaultValue={Service?.DocumentInvoice} name="DocumentInvoice" placeholder="Numero de documento" type="text" required />
+        </div>
+        <br/>
+
+        <div>
         <Input defaultValue={Service?.invoiceUrl} name="invoiceUrl" placeholder="Url buscar factura" type="text" required />
-        <Input defaultValue={Service?.invoiceMethod} name="invoiceMethod" placeholder="Metodo eje: post, get" type="text" required />
-        <Input defaultValue={Service?.nameInvoiceDateJSON} name="nameInvoiceDateJSON" placeholder="Nombre Fecha vencimiento" type="text" required />
-        <Input defaultValue={Service?.nameInvoiceJSON} name="nameInvoiceJSON" placeholder="Obtener nombre fac eje: name" type="text" required />
-        <Input defaultValue={Service?.nameInvoiceTotalJSON} name="nameInvoiceTotalJSON" placeholder="Obtener total fac eje: total" type="text" required />
-        <Input defaultValue={Service?.numberInvoice} name="numberInvoice" placeholder="Obtener id fac eje: ID, _id" type="text" required />
-        <Input defaultValue={Service?.payInvoiceUrl} name="payInvoiceUrl" placeholder="Url pagar factura" type="text" required />
-        <Input defaultValue={Service?.payInvoiceMethod} name="payInvoiceMethod" placeholder="Metodo eje: post, put" type="text" required />
-        <Input name="file"  type="file" accept="image/png,PNG" />
+          <Input defaultValue={Service?.invoiceMethod} name="invoiceMethod" placeholder="Metodo eje: post, get" type="text" required />
+      </div>
+        <br/>
+
+        <div>
+          <Input defaultValue={Service?.nameInvoiceDateJSON} name="nameInvoiceDateJSON" placeholder="Nombre Fecha vencimiento" type="text" required />
+          <Input defaultValue={Service?.nameInvoiceJSON} name="nameInvoiceJSON" placeholder="Obtener nombre fac eje: name" type="text" required />
+        </div>
+        <br/>
+
+        <div>
+          <Input defaultValue={Service?.nameInvoiceTotalJSON} name="nameInvoiceTotalJSON" placeholder="Obtener total fac eje: total" type="text" required />
+          <Input defaultValue={Service?.numberInvoice} name="numberInvoice" placeholder="Obtener id fac eje: ID, _id" type="text" required />
+        </div>
+        <br/>
+
+        <div>
+          <Input defaultValue={Service?.payInvoiceUrl} name="payInvoiceUrl" placeholder="Url pagar factura" type="text" required />
+          <Input defaultValue={Service?.payInvoiceMethod} name="payInvoiceMethod" placeholder="Metodo eje: post, put" type="text" required />
+        </div>
+        <br/>
+
+        <div>
+          <Input name="file"  type="file" accept="image/png,PNG" />
+        </div>
+        <br/>
+
+
+
       </form>
+
+
+
     </Modal>
   );
 };
