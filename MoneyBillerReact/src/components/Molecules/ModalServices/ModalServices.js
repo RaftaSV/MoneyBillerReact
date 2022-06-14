@@ -1,6 +1,9 @@
 import useMutation from 'hooks/useMutation';
 import Modal from 'components/Atoms/Modal';
 import Input from 'components/Atoms/Input';
+import Title from 'components/Atoms/Title';
+import {Form, DivLeft, DivRight} from './style'
+
 
 const ModalService = ({ isOpen, onCancel, onRefresh, isUpdate = false, Service = null }) => {
   const [createOrUpdateServices, { loading: loadingAddOrUpdateServices }] = useMutation(isUpdate ? `/Services/${Service?.id}` : '/Services', {
@@ -37,47 +40,34 @@ const ModalService = ({ isOpen, onCancel, onRefresh, isUpdate = false, Service =
         loading: loadingAddOrUpdateServices
       }}
     >
-      <form id="form-service" method="POST" onSubmit={onSubmit}>
-        <div>
-
+      <Form id="form-service" method="POST" onSubmit={onSubmit}>
+        <DivLeft>
+         <Title size={13}> Nombre del servicio</Title>
         <Input defaultValue={Service?.serviceName} name="serviceName" placeholder="Nombre servicio" type="text" required  />
-
-          <Input defaultValue={Service?.DocumentInvoice} name="DocumentInvoice" placeholder="Numero de documento" type="text" required />
-        </div>
-        <br/>
-
-        <div>
-        <Input defaultValue={Service?.invoiceUrl} name="invoiceUrl" placeholder="Url buscar factura" type="text" required />
-          <Input defaultValue={Service?.invoiceMethod} name="invoiceMethod" placeholder="Metodo eje: post, get" type="text" required />
-      </div>
-        <br/>
-
-        <div>
-          <Input defaultValue={Service?.nameInvoiceDateJSON} name="nameInvoiceDateJSON" placeholder="Nombre Fecha vencimiento" type="text" required />
-          <Input defaultValue={Service?.nameInvoiceJSON} name="nameInvoiceJSON" placeholder="Obtener nombre fac eje: name" type="text" required />
-        </div>
-        <br/>
-
-        <div>
-          <Input defaultValue={Service?.nameInvoiceTotalJSON} name="nameInvoiceTotalJSON" placeholder="Obtener total fac eje: total" type="text" required />
-          <Input defaultValue={Service?.numberInvoice} name="numberInvoice" placeholder="Obtener id fac eje: ID, _id" type="text" required />
-        </div>
-        <br/>
-
-        <div>
-          <Input defaultValue={Service?.payInvoiceUrl} name="payInvoiceUrl" placeholder="Url pagar factura" type="text" required />
-          <Input defaultValue={Service?.payInvoiceMethod} name="payInvoiceMethod" placeholder="Metodo eje: post, put" type="text" required />
-        </div>
-        <br/>
-
-        <div>
-          <Input name="file"  type="file" accept="image/png,PNG" />
-        </div>
-        <br/>
-
-
-
-      </form>
+          <Title size={13}> Tipo documento</Title>
+          <Input defaultValue={Service?.DocumentInvoice} name="DocumentInvoice" placeholder="Ejemplo: DUI, Tel" type="text" required />
+          <Title size={13}>URL buscar facturas </Title>
+          <Input defaultValue={Service?.invoiceUrl} name="invoiceUrl" placeholder="Url buscar factura" type="text" required />
+          <Title size={13}>Metodo de acceso</Title>
+          <Input defaultValue={Service?.invoiceMethod} name="invoiceMethod" placeholder="Metodo ejemplo: post, get" type="text" required />
+          <Title size={13}>fecha vencimiento</Title>
+          <Input defaultValue={Service?.nameInvoiceDateJSON} name="nameInvoiceDateJSON" placeholder="Ejemplo: date, fecha" type="text" required />
+          <Title size={13}>Nombre en factura</Title>
+          <Input defaultValue={Service?.nameInvoiceJSON} name="nameInvoiceJSON" placeholder=" Ejemplo: name" type="text" required />
+        </DivLeft>
+        <DivRight>
+          <Title size={13}>Nombre total</Title>
+          <Input defaultValue={Service?.nameInvoiceTotalJSON} name="nameInvoiceTotalJSON" placeholder="Obtener total fac ejemplo: total" type="text" required />
+          <Title size={13}>Obtener id</Title>
+          <Input defaultValue={Service?.numberInvoice} name="numberInvoice" placeholder="fact Ejemplo: ID, _id" type="text" required />
+          <Title size={13}>URL pagar</Title>
+        <Input defaultValue={Service?.payInvoiceUrl} name="payInvoiceUrl" placeholder="Url pagar factura" type="text" required />
+          <Title size={13}>Metodo de acceso</Title>
+        <Input defaultValue={Service?.payInvoiceMethod} name="payInvoiceMethod" placeholder="Metodo ejemplo: post, put" type="text" required />
+          <Title size={13}>Imagen</Title>
+        <Input name="file"  type="file" accept="image/png,PNG" />
+        </DivRight>
+      </Form>
 
 
 

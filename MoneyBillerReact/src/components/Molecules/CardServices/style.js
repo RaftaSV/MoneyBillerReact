@@ -24,8 +24,8 @@ export const StyleImage = styled.img`
 
 export const StyleButton = styled(Button)`
   position: absolute;
-  background:${({ theme }) => theme.colors.success};;
-  color:${({ theme }) => theme.colors.warning};;
+  background:${({ theme }) => theme.colors.success};
+  color:${({ theme }) => theme.colors.Backgraund};
   min-width: auto;
   padding: 0;
   width:40px;
@@ -33,5 +33,19 @@ export const StyleButton = styled(Button)`
   right: 10px;
   top: 10px;
   border-radius: 50px;
-  font-size: 18px;
+  font-size: 25px;
+`;
+
+export const StyleButtonDelete = styled(Button)`
+  position: absolute;
+  background:${({ theme }) => theme.colors.error};
+  color:${({ theme }) => theme.colors.Backgraund};
+  min-width: auto;
+  padding: 0;
+  width:40px;
+  height: 40px;
+  right: 10px;
+  top: 54px;
+  border-radius: 50px;
+  font-size: 37px;
 `;

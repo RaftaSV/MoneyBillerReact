@@ -1,6 +1,7 @@
 import Title from 'components/Atoms/Title';
 import Button from 'components/Atoms/Button';
-import { StyleActions, StyleWrapper } from './style';
+import {StyleActions, StyleButton, StyleWrapper} from './style';
+import Add from '../../Atoms/Icons/Add';
 
 const HeaderPage = ({ title, onRefresh, onAdd }) => {
   return (
@@ -11,7 +12,7 @@ const HeaderPage = ({ title, onRefresh, onAdd }) => {
 
       <StyleActions>
         {onRefresh && <Button color="success" labelColor="white" onClick={onRefresh}>Refresh</Button>}
-        {onAdd && <Button labelColor="white" onClick={onAdd}>Agregar</Button>}
+        {onAdd && <StyleButton labelColor="white" onClick={onAdd}><Add/></StyleButton>}
       </StyleActions>
     </StyleWrapper>
   );

@@ -1,48 +1,90 @@
-import Swal from 'sweetalert2';
-import { useEffect } from 'react';
+import useModal from 'hooks/useModal';
 import useQuery from 'hooks/useQuery';
+import {useEffect, useState} from 'react';
 import { Row, Col } from 'react-grid-system';
+import useMutation from 'hooks/useMutation';
 import Layout from 'components/Organisms/Layout';
-import withReactContent from 'sweetalert2-react-content';
-import CardCompanies from 'components/Molecules/CardCompanies';
+import Loader from 'components/Molecules/Loader';
+import HeaderPage from 'components/Molecules/HeaderPage';
+import { AddCompanyModal } from 'components/Molecules/ModalCompany'
 
-const baseUrl = `${process.env.REACT_APP_API_URL}/v1`;
-// const { data, loading, refresh } = useQuery('/Companies');
-function Companies() {
-  const { data, loading } = useQuery('/Companies');
+import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
+import CardCompanies from '../components/Molecules/CardCompanies';
+
+
+function Services() {
+
+  const baseUrl = `${process.env.REACT_APP_API_URL}/v1`;
+
+  const { data, loading, refresh } = useQuery('/Companies');
+  const { visible, onToggle } = useModal();
+  const [companyEdit, setCompanyEdit] = useState(null);
+  const { visible: isUpdate, onHidden, onVisible } = useModal();
+
+  const [deleteCompany] = useMutation(`/Companies`, {
+    refresh,
+    method: 'delete',
+  });
+
+  const onEdit = (Company) => {
+    onVisible();
+    setCompanyEdit(Company);
+    onToggle();
+  };
+
+  const onClose = () => {
+    onHidden();
+    setCompanyEdit(null);
+    onToggle();
+  };
+
+  const onDelete = (id) => {
+    const MySwal = withReactContent(Swal);
+    MySwal.fire({
+      title: 'Desea eliminar esta empresa?',
+      showDenyButton: true,
+      confirmButtonText: 'Eliminar',
+      denyButtonText: `No eliminar`,
+      background: 'rgba(100, 100, 120, 0.8)',
+      color: '#ffffff'
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        deleteCompany({}, id).then();
+      }
+    })
+  };
+
   useEffect(() => {
     console.log({ data, loading });
-    document.title='Companies';
+    document.title = 'Empresas';
   }, [loading, data]);
-
-const viewName = async (name) => {
-  const mySwal = withReactContent(Swal);
-  await mySwal.fire({
-    title: 'Clicking',
-    text: `you are clicking company ${name}`,
-    icon: 'success',
-    confirmButtonText: 'Ok',
-  });
-}
- // <Button onClick={refresh}>Refresh</Button>
   return (
     <Layout>
+      <HeaderPage title="Empresas" onAdd={onToggle} />
       {loading ? (
-        <p>
-          <b>Loading...</b>
-        </p>
+       <Loader />
       ) : (
         <Row>
-          {data?.map(({ id, name, address, tel, email, image }) => (
+          {data?.map((company) => {
+            const{ id, name, address, tel, email, image } = company;
+            return (
             <Col key={id} xs={12} md={6} lg={4}>
-              <CardCompanies  name={name} image={`${baseUrl}/Images/Companies/${id}${image}.png`}  address={address} tel={tel} email={email} onClick={() => viewName(name)}/>
+            <CardCompanies  name={name}
+            image={`${baseUrl}/Images/Companies/${id}${image}`}
+            address={address} tel={tel} email={email}
+            onEdit={() => onEdit(company)}
+            onRemove={()=> onDelete(id)}
+            />
             </Col>
-          ))}
+            );
+          })}
         </Row>
       )}
-      <div style={{ minHeight: '90vh' }} />
+      <AddCompanyModal company={companyEdit} isOpen={visible} isUpdate={isUpdate} onRefresh={refresh} onCancel={onClose} />
     </Layout>
   );
 }
 
-export default Companies;
+export default Services;

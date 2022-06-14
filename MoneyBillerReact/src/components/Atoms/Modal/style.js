@@ -2,34 +2,27 @@ import styled from 'styled-components';
 import Button from '../Button';
 
 export const StyleBody = styled.div`
-  position: center;
-  height: 100%;
-  width: 100%;
-  min-width: 800px;
-  max-width: 100px;
-  min-height: 400px;
-  max-height: 400px;
-  padding: 50px;
+  position: relative;
+  min-width: 450px;
+  padding: 10px;
   background-color: ${({ theme }) => theme.colors.nav};
   display: flex;
-  border: 5px;
+  border: 2px;
   justify-content: space-between;
   z-index: ${({ theme }) => theme.zIndex.max} ;
- ;
-
 `;
 
 export const StyleTitle = styled.div`
   position: relative;
-  height: 25%;
+  height: 100%;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.nav};
   padding-left: 20px;
 `;
 
 export const StyleCloseBtn = styled(Button)`
-  position: fixed;
-  right: 20px;
+  position: absolute;
+  right: 10px;
   top: -1px;
   min-width: auto;
   width: 40px;
@@ -43,16 +36,16 @@ export const StyleCloseBtn = styled(Button)`
 
 export const customStyles = {
   overlay: {
-    backdropFilter: 'saturate(100%) blur(25px)'
+    backdropFilter: 'saturate(100%) blur(10px)'
   },
   content: {
-    top: '54%',
+    top: '55%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    padding: 19,
+    padding: 0,
   }
 };
 export const StyleFooter = styled.div`
@@ -63,5 +56,3 @@ export const StyleFooter = styled.div`
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.nav};
 `;
-
-

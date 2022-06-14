@@ -7,7 +7,7 @@ export const Form = styled.form`
 export const DivLeft = styled.div `
   display: flex;
  flex-direction: column;
- margin-left: 20px;
+ margin-left: 8px;
   align-items: center;
 `;
 
@@ -17,4 +17,3 @@ export const DivRight = styled.div `
   margin-left: 20px;
   align-items: center;
 `;
-
