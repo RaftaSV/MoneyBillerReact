@@ -17,6 +17,10 @@ export const ROUTES = {
     path: 'Services',
     absolutePath: '/app/Services'
   },
+  USERS: {
+    path: 'Users',
+    absolutePath: '/app/Users'
+  },
   NOTFOUND: {
     path: 'NotFound',
     absolutePath: '/app/NotFound'

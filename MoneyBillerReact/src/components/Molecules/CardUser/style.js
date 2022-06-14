@@ -15,15 +15,7 @@ export const StyleWrapper = styled.div`
   }
 `;
 
-export const StyleImage = styled.img`
-  border-radius: 12px;
-  max-width: 400px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
-export const StyleButton = styled(Button)`
+ export const StyleButton = styled(Button)`
   position: absolute;
   background:${({ theme }) => theme.colors.success};
   color:${({ theme }) => theme.colors.Backgraund};

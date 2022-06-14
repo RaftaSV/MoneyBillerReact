@@ -70,7 +70,7 @@ function Services() {
           {data?.map((company) => {
             const{ id, name, address, tel, email, image } = company;
             return (
-            <Col key={id} xs={12} md={6} lg={4}>
+            <Col key={id} xs={10} md={6} lg={4}>
             <CardCompanies  name={name}
             image={`${baseUrl}/Images/Companies/${id}${image}`}
             address={address} tel={tel} email={email}

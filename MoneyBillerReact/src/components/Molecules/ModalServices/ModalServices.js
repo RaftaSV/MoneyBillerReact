@@ -16,7 +16,7 @@ const ModalService = ({ isOpen, onCancel, onRefresh, isUpdate = false, Service =
       await onRefresh();
     }
   });
-
+  console.log(Service);
   const onSubmit = async (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target));

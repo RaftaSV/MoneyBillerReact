@@ -1,7 +1,7 @@
 import Title from 'components/Atoms/Title';
 import {StyleButton, StyleButtonDelete, StyleImage, StyleWrapper} from './style';
 import PencilFilled from 'components/Atoms/Icons/PencilFilled';
-import Delete from 'components/Atoms/Icons/Delete';
+import Delete from '../../Atoms/Icons/Delete';
 
 const CardServices = ({ image, name, DocumentInvoice,onEdit,onRemove }) => {
   return (

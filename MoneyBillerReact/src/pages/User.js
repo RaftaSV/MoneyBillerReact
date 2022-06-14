@@ -5,43 +5,41 @@ import { Row, Col } from 'react-grid-system';
 import Layout from 'components/Organisms/Layout';
 import Loader from 'components/Molecules/Loader';
 import HeaderPage from 'components/Molecules/HeaderPage';
-import CardServices from 'components/Molecules/CardServices';
-import ModalService from 'components/Molecules/ModalServices/ModalServices';
+import { AddUserModal } from 'components/Molecules/ModalUser';
 import useMutation from '../hooks/useMutation';
 import withReactContent from 'sweetalert2-react-content';
 import Swal from 'sweetalert2';
+import CardUser from 'components/Molecules/CardUser';
 
 
-function Services() {
+function Users() {
 
-  const baseUrl = `${process.env.REACT_APP_API_URL}/v1/Images/Services`;
-
-  const { data, loading, refresh } = useQuery('/Services');
+  const { data, loading, refresh } = useQuery('/Users');
   const { visible, onToggle } = useModal();
-  const [serviceEdit, setServiceEdit] = useState(null);
+  const [userEdit, setUserEdit] = useState(null);
   const { visible: isUpdate, onHidden, onVisible } = useModal();
 
-  const [deleteService] = useMutation(`/Services`, {
+  const [deleteUser] = useMutation(`/Users`, {
     refresh,
     method: 'delete',
   });
 
-  const onEdit = (Service) => {
+  const onEdit = (User) => {
     onVisible();
-    setServiceEdit(Service);
+    setUserEdit(User);
     onToggle();
   };
 
   const onClose = () => {
     onHidden();
-    setServiceEdit(null);
+    setUserEdit(null);
     onToggle();
   };
 
   const onDelete = (id) => {
     const MySwal = withReactContent(Swal);
     MySwal.fire({
-      title: 'Desea eliminar este servicio?',
+      title: 'Desea eliminar este usuario?',
       showDenyButton: true,
       confirmButtonText: 'Eliminar',
       denyButtonText: `No eliminar`,
@@ -50,31 +48,34 @@ function Services() {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        deleteService({}, id).then();
+        deleteUser({}, id).then();
       }
     })
   };
 
   useEffect(() => {
     console.log({ data, loading });
-    document.title = 'Services';
+    document.title = 'User';
   }, [loading, data]);
   return (
     <Layout>
-      <HeaderPage title="Servicios" onAdd={onToggle} />
+      <HeaderPage title="Usuarios" onAdd={onToggle} />
       {loading ? (
-       <Loader />
+        <Loader />
       ) : (
         <Row>
-          {data?.map(( Service) => {
-            const {id, serviceName, DocumentInvoice,image} = Service;
+          {data?.map(( user) => {
+            const {id, name, lastName,address,DUI,tel,email} = user;
             return (
               <Col key={id} xs={9} md={6} lg={4}>
-                <CardServices
-                  name={serviceName}
-                  image={`${baseUrl}/${id}${image}`}
-                  DocumentInvoice={DocumentInvoice}
-                  onEdit={() => onEdit(Service)}
+                <CardUser
+                  name={name}
+                  lastName={lastName}
+                  Address={address}
+                  DUI={DUI}
+                  tel={tel}
+                  email={email}
+                  onEdit={() => onEdit(user)}
                   onRemove={()=> onDelete(id)}
                 />
               </Col>
@@ -82,9 +83,9 @@ function Services() {
           })}
         </Row>
       )}
-      <ModalService Service={serviceEdit} isOpen={visible} isUpdate={isUpdate} onRefresh={refresh} onCancel={onClose} />
+      <AddUserModal user={userEdit} isOpen={visible} isUpdate={isUpdate} onRefresh={refresh} onCancel={onClose} />
     </Layout>
   );
 }
 
-export default Services;
+export default Users;
