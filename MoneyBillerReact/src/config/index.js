@@ -21,6 +21,14 @@ export const ROUTES = {
     path: 'Users',
     absolutePath: '/app/Users'
   },
+  MEMBERS: {
+    path: 'Members',
+    absolutePath: '/app/Members'
+  },
+  MAIN: {
+    path: 'Main',
+    absolutePath: '/app/Main'
+  },
   NOTFOUND: {
     path: 'NotFound',
     absolutePath: '/app/NotFound'

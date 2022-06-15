@@ -28,3 +28,13 @@ export const StyleImagePagosv = styled.img`
   margin-left: -70%;
   image-resolution: from-image;
 `;
+
+export const Home = styled.button`
+
+  width: 50px;
+  height: 50px;
+  background: ${({ theme }) => theme.colors.transparent}; ;
+  color: ${({ theme }) => theme.colors.text};
+  border-radius: 40px;
+  font-size: 25px;
+`;

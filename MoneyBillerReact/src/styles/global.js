@@ -26,6 +26,11 @@ const GlobalStyle = createGlobalStyle`
     monospace;
   }
 
+  a {
+    text-decoration: none;
+  }
+
 `;
+
 
 export default GlobalStyle;

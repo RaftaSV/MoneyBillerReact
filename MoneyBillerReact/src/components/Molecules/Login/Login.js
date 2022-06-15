@@ -1,11 +1,13 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import {useState} from 'react';
+import {ROUTES} from 'config';
 import Title from 'components/Atoms/Title';
 import Input from 'components/Atoms/Input';
 import Button from 'components/Atoms/Button';
 import withReactContent from 'sweetalert2-react-content';
 import {StyleImageAvatar, Style, FormContainer,StyleImageLogo, StyleRegisterUser} from './style';
+
 
 
 const baseUrl = `${process.env.REACT_APP_API_URL}/v1`;
@@ -30,7 +32,7 @@ const SignInForm = ({onClickUser, onClickMember, onClickCompany}) => {
     if (Username === '' || Password === '') {
         await MySwal.fire({
           title: 'Error',
-          text: 'Please fill all the fields',
+          text: 'Por favor llena todos los campos',
           icon: 'error',
           confirmButtonText: 'Ok',
           color: '#ffffff',
@@ -48,21 +50,14 @@ const SignInForm = ({onClickUser, onClickMember, onClickCompany}) => {
             async (response) => {
 
               if(response.status===200) {
-                await MySwal.fire({
-                  title: 'Success',
-                  text: 'You are now logged in',
-                  icon: 'success',
-                  confirmButtonText: 'Ok',
-                  background: 'rgba(100, 100, 120, 0.8)',
-                  color: '#ffffff'
-                });
+                window.location.assign(ROUTES.MAIN.absolutePath);
               }
             },
             async (error) => {
               await MySwal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'User or pass incorrect',
+                text: 'Usuario o Contraseña invalida',
                 background: 'rgba(100, 100, 120, 0.8)',
                 color: '#ffffff'
               });

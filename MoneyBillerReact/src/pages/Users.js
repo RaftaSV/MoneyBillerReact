@@ -9,7 +9,7 @@ import { AddUserModal } from 'components/Molecules/ModalUser';
 import useMutation from '../hooks/useMutation';
 import withReactContent from 'sweetalert2-react-content';
 import Swal from 'sweetalert2';
-import CardUser from 'components/Molecules/CardUser';
+import CardUser from 'components/Molecules/CardUsers';
 
 
 function Users() {

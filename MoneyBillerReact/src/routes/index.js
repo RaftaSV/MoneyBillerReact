@@ -5,7 +5,9 @@ import Home from 'pages/Login';
 import Companies from 'pages/Companies';
 import Services from 'pages/Services';
 import NotFound from 'pages/404';
-import User from 'pages/User';
+import User from 'pages/Users';
+import Members from 'pages/Members';
+import Main from '../pages/mainPage/Main';
 
 
 const Routes = () => {
@@ -20,6 +22,8 @@ const Routes = () => {
             <Route index path={ROUTES.COMPANIES.absolutePath} element={<Companies />} />
             <Route path={ROUTES.SERVICES.absolutePath} element={<Services />} />
             <Route path={ROUTES.USERS.absolutePath} element={<User />} />
+            <Route path={ROUTES.MEMBERS.absolutePath} element={<Members />} />
+            <Route path={ROUTES.MAIN.absolutePath} element={<Main />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </ReactRoutes>

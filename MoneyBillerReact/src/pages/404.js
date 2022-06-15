@@ -1,25 +1,13 @@
-import { Link } from 'react-router-dom';
+import   Card404  from 'components/Molecules/Card404'
+import Layout from 'components/Organisms/Layout';
 
-import { ROUTES } from 'config';
-import Title from 'components/Atoms/Title';
-import Button from 'components/Atoms/Button';
+document.title = 'NotFound';
 
 function NotFound() {
   return (
-    <div
-      style={{
-        display: 'grid',
-        placeItems: 'center',
-        height: '100vh'
-      }}
-    >
-      <div style={{ textAlign: 'center' }}>
-        <Title>404 NOT FOUND</Title>
-        <Link to={ROUTES.PETS.absolutePath}>
-          <Button>Go to safe page</Button>
-        </Link>
-      </div>
-    </div>
+    <Layout>
+    <div align={'center'}><Card404 /></div>
+    </Layout>
   );
 }
 
