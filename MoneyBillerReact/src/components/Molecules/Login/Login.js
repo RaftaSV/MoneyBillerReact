@@ -50,6 +50,14 @@ const SignInForm = ({onClickUser, onClickMember, onClickCompany}) => {
             async (response) => {
               if(response.data.typeUser==='admin') {
                 window.location.assign(ROUTES.MAIN.absolutePath);
+              } else {
+                await MySwal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'No eres Admin',
+                  background: 'rgba(100, 100, 120, 0.8)',
+                  color: '#ffffff'
+                });
               }
             },
             async (error) => {
