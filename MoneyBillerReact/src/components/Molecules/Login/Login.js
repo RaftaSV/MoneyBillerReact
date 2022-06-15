@@ -48,8 +48,7 @@ const SignInForm = ({onClickUser, onClickMember, onClickCompany}) => {
           })
           .then(
             async (response) => {
-
-              if(response.status===200) {
+              if(response.data.typeUser==='admin') {
                 window.location.assign(ROUTES.MAIN.absolutePath);
               }
             },
